@@ -7,5 +7,7 @@ taskkill /F /IM python.exe /T
 :: 強制關閉 Cloudflare Tunnel
 taskkill /F /IM cloudflared.exe /T
 
+taskkill /F /IM wscript.exe
+
 echo.
 echo 伺服器已成功關閉！
