@@ -9,4 +9,3 @@ taskkill /F /IM cloudflared.exe /T
 
 echo.
 echo 伺服器已成功關閉！
-pause
