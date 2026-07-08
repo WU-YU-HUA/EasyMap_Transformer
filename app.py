@@ -6,7 +6,10 @@ import re
 import io
 from pyproj import Transformer
 import base64
+import urllib3 # 補上這行
 
+# 補上這行，告訴 urllib3 不要再顯示 InsecureRequestWarning 警告了
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 # ==================== 設定區 ====================
 LAND_COLUMN = "addr"  # 你的 Excel 中，放地政地址的欄位名稱
 TOKEN = "6ZUKCGSOPT8VMMCFZ6D7QU6MNT1OFH9W"  # 內政部 API Token
