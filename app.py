@@ -26,7 +26,7 @@ def get_town(city_code: str) -> list:
     url = f"https://easymap.moi.gov.tw/Z10Web/City_json_getTownList"
     data = {"cityCode": city_code, "struts.token.name": "token", "token": TOKEN}
     try:
-        response = requests.post(url, data=data, timeout=10)
+        response = requests.post(url, data=data, timeout=10, verify=False)
         if response.status_code == 200:
             return response.json()
     except Exception as e:
@@ -37,7 +37,7 @@ def get_section(city_code: str, dist_code: str) -> list:
     url = f"https://easymap.moi.gov.tw/Z10Web/City_json_getSectionList"
     data = {"cityCode": city_code, "townCode": dist_code, "struts.token.name": "token", "token": TOKEN}
     try:
-        response = requests.post(url, data=data, timeout=10)
+        response = requests.post(url, data=data, timeout=10, verify=False)
         if response.status_code == 200:
             return response.json()
     except Exception as e:
@@ -48,7 +48,7 @@ def get_xy(section_code: str, office_code: str, land_number: str) -> tuple:
     url = f"https://easymap.moi.gov.tw/Z10Web/Land_json_locate"
     data = {"sectNo": section_code, "office": office_code, "landNo": land_number, "struts.token.name": "token", "token": TOKEN}
     try:
-        response = requests.post(url, data=data, timeout=10)
+        response = requests.post(url, data=data, timeout=10, verify=False)
         if response.status_code == 200:
             res_json = response.json()
             return res_json.get("X", 0), res_json.get("Y", 0)
